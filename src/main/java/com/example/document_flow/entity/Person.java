@@ -29,6 +29,9 @@ public class Person {
         this.department = department;
     }
 
+    public Person() {
+    }
+
     public Long getId() {
         return id;
     }
