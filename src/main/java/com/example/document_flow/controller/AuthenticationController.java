@@ -2,6 +2,7 @@ package com.example.document_flow.controller;
 
 import com.example.document_flow.dto.SigninDTO;
 import com.example.document_flow.dto.SignupDTO;
+import com.example.document_flow.entity.Permission;
 import com.example.document_flow.service.AuthenticationService;
 import com.example.document_flow.util.CurrentUser;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,5 +38,15 @@ public class AuthenticationController {
     @GetMapping("/current")
     public ResponseEntity<?> current() {
         return new ResponseEntity<>(CurrentUser.getInstance().getUser(), HttpStatus.ACCEPTED);
+    }
+
+    @DeleteMapping("/entrance/{login}")
+    public ResponseEntity<?> deleteByLogin(@PathVariable String login) {
+        return new ResponseEntity<>(authenticationService.deleteByLogin(login), HttpStatus.ACCEPTED);
+    }
+
+    @GetMapping("/hr")
+    public ResponseEntity<?> checkedPermission(@RequestParam("permission") String permission) {
+        return new ResponseEntity<>(authenticationService.checkedPermission(permission), HttpStatus.ACCEPTED);
     }
 }

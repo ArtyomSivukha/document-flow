@@ -17,11 +17,7 @@ public class UserService {
     }
 
     public User getOne(Long id) {
-        if (userRepository.existsById(id)) {
-            return userRepository.findById(id).get();
-        } else {
-            throw new IllegalArgumentException();
-        }
+        return userRepository.findById(id).get();
     }
 
     public User addOne(User user){
