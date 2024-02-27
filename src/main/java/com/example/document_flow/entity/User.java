@@ -12,7 +12,7 @@ public class User {
     private String login;
     private String password;
     private Permission permission;
-    @OneToOne
+    @OneToOne(cascade = CascadeType.ALL)
     private Person person;
 
     public User() {

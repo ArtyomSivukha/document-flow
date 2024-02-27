@@ -4,6 +4,7 @@ package com.example.document_flow.service;
 import com.example.document_flow.dto.SigninDTO;
 import com.example.document_flow.dto.SignupDTO;
 import com.example.document_flow.entity.Permission;
+import com.example.document_flow.entity.Person;
 import com.example.document_flow.entity.User;
 import com.example.document_flow.repository.UserRepository;
 import com.example.document_flow.util.CurrentUser;
@@ -40,6 +41,7 @@ public class AuthenticationService {
         user.setLogin(signupDTO.getLogin());
         user.setPassword(signupDTO.getPassword());
         user.setPermission(signupDTO.getPermission());
+        user.setPerson(new Person());
         return userRepository.save(user);
     }
 

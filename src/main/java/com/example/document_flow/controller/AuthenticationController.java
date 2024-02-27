@@ -40,13 +40,4 @@ public class AuthenticationController {
         return new ResponseEntity<>(CurrentUser.getInstance().getUser(), HttpStatus.ACCEPTED);
     }
 
-    @DeleteMapping("/entrance/{login}")
-    public ResponseEntity<?> deleteByLogin(@PathVariable String login) {
-        return new ResponseEntity<>(authenticationService.deleteByLogin(login), HttpStatus.ACCEPTED);
-    }
-
-    @GetMapping("/hr")
-    public ResponseEntity<?> checkedPermission(@RequestParam("permission") String permission) {
-        return new ResponseEntity<>(authenticationService.checkedPermission(permission), HttpStatus.ACCEPTED);
-    }
 }
