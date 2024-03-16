@@ -14,4 +14,12 @@ public class Contract {
     @Id
     @GeneratedValue (strategy = GenerationType.IDENTITY)
     private Long id;
+    private String clientName;
+//    private Person person;
+
+    public Contract(Long id, String clientName, Person person) {
+        this.id = id;
+        this.clientName = clientName;
+//        this.person = person;
+    }
 }
