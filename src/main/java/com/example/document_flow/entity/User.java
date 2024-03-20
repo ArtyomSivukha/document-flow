@@ -15,6 +15,7 @@ public class User {
     private String login;
     private String password;
     private Permission permission;
+
     @OneToOne(cascade = CascadeType.ALL)
     private Person person;
 

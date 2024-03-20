@@ -1,5 +1,6 @@
 package com.example.document_flow.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -20,8 +21,10 @@ public class Department {
     private String name;
     private String abbreviation;
     private String description;
-    @OneToMany
-    private List<Person> persons;
+    @OneToMany (cascade = CascadeType.ALL, orphanRemoval = true)
+    @JoinColumn (name = "department_id")
+    @JsonIgnore
+    private List<Person> persons = new ArrayList<>();
 
     public Department(Long id, String name, String abbreviation, String description, List<Person> persons) {
         this.id = id;
@@ -31,4 +34,14 @@ public class Department {
         this.persons = persons;
     }
 
+    @Override
+    public String toString() {
+        return "Department{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", abbreviation='" + abbreviation + '\'' +
+                ", description='" + description + '\'' +
+                ", persons=" + persons +
+                '}';
+    }
 }

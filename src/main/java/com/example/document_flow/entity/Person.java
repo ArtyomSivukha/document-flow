@@ -22,7 +22,7 @@ public class Person {
     private String secondname;
     private String position;
     private Date birthdate;
-    @ManyToOne
+    @ManyToOne (cascade = CascadeType.ALL)
     private Department department;
 
     public Person(Long id, String firstname, String patronymic, String secondname, String position, Date birthdate, Department department) {
@@ -33,5 +33,17 @@ public class Person {
         this.position = position;
         this.birthdate = birthdate;
         this.department = department;
+    }
+
+    @Override
+    public String toString() {
+        return "Person{" +
+                "id=" + id +
+                ", firstname='" + firstname + '\'' +
+                ", patronymic='" + patronymic + '\'' +
+                ", secondname='" + secondname + '\'' +
+                ", position='" + position + '\'' +
+                ", birthdate=" + birthdate +
+                '}';
     }
 }
