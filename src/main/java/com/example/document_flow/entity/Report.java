@@ -23,6 +23,7 @@ public class Report {
     private boolean isApproved;
     private String approvedBy;
 
+
     public Report(Long id, String title, String description, Date createdAt, String createdBy, boolean isApproved, String approvedBy) {
         this.id = id;
         this.title = title;

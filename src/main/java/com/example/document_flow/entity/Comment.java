@@ -20,6 +20,9 @@ public class Comment {
     private String author;
     private Date createdAt;
 
+    @ManyToOne (cascade = CascadeType.ALL)
+    private Document document;
+
     public Comment(Long id, String content, String author, Date createdAt) {
         this.id = id;
         this.content = content;

@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 @Entity
 @Table(name = "notifications")
@@ -20,6 +21,9 @@ public class Notification {
     private Date createdAt;
     private boolean isRead;
     private String recipient;
+
+    @ManyToMany (cascade = CascadeType.ALL)
+    private List<User> users;
 
     public Notification(Long id, String message, Date createdAt, boolean isRead, String recipient) {
         this.id = id;

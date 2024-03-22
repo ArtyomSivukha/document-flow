@@ -26,6 +26,9 @@ public class Department {
     @JsonIgnore
     private List<Person> persons = new ArrayList<>();
 
+    @OneToMany (cascade = CascadeType.ALL)
+    private List<Project> projects;
+
     public Department(Long id, String name, String abbreviation, String description, List<Person> persons) {
         this.id = id;
         this.name = name;

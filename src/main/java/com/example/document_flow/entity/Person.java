@@ -24,6 +24,10 @@ public class Person {
     private Date birthdate;
     @ManyToOne (cascade = CascadeType.ALL)
     private Department department;
+    @OneToOne (cascade = CascadeType.ALL)
+    private Contract contract;
+    @OneToOne (cascade = CascadeType.ALL)
+    private Address address;
 
     public Person(Long id, String firstname, String patronymic, String secondname, String position, Date birthdate, Department department) {
         this.id = id;

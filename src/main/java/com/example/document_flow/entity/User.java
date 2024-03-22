@@ -3,6 +3,8 @@ package com.example.document_flow.entity;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 @Getter
@@ -18,6 +20,12 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL)
     private Person person;
+
+    @ManyToMany (cascade = CascadeType.ALL)
+    private List<Document> documents;
+
+    @ManyToMany (cascade = CascadeType.ALL)
+    private List<Notification> notifications;
 
     public User(Long id, String login, String password, Permission permission, Person person) {
         this.id = id;
