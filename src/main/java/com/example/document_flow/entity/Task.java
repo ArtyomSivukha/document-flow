@@ -14,4 +14,12 @@ public class Task {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    private String title;
+    private String description;
+
+    @ManyToOne (cascade = CascadeType.ALL)
+    private Person person;
+
+    @ManyToOne (cascade = CascadeType.ALL)
+    private Department department;
 }

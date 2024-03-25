@@ -17,13 +17,18 @@ public class PersonController {
     private PersonService personService;
 
     @GetMapping()
-    public ResponseEntity<?> getPerson() {
+    public ResponseEntity<?> getFromCurrentUser() {
         return new ResponseEntity<>(CurrentUser.getInstance().getUser().getPerson(), HttpStatus.OK);
     }
 
     @PutMapping("/edit")
-    public ResponseEntity<?> editPerson(@RequestBody Person person) {
+    public ResponseEntity<?> edit(@RequestBody Person person) {
         return new ResponseEntity<>(personService.update(person), HttpStatus.OK);
+    }
+
+    @PutMapping("/editDepartment/{id}")
+    public ResponseEntity<?> changeDepartment(@PathVariable Long id) {
+        return new ResponseEntity<>(personService.changeDepartment(id), HttpStatus.OK);
     }
 
 }

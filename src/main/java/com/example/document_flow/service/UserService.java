@@ -13,6 +13,7 @@ public class UserService {
     private UserRepository userRepository;
 
     public List<User> getAll() {
+        System.out.println(userRepository.findAll());
         return userRepository.findAll();
     }
 

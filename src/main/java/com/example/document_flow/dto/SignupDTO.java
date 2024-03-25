@@ -1,6 +1,6 @@
 package com.example.document_flow.dto;
 
-import com.example.document_flow.entity.Permission;
+import com.example.document_flow.entity.enums.Permission;
 
 public class SignupDTO {
     private String login;

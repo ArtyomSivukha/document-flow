@@ -19,8 +19,8 @@ public class DepartmentController {
         return new ResponseEntity<>(departmentService.getAll(), HttpStatus.OK);
     }
 
-    @GetMapping("/my")
-    public ResponseEntity<?> getMy(){
+    @GetMapping()
+    public ResponseEntity<?> getFromCurrentUser(){
         return new ResponseEntity<>(CurrentUser.getInstance().getUser().getPerson().getDepartment(), HttpStatus.OK);
     }
 
@@ -28,5 +28,4 @@ public class DepartmentController {
     public ResponseEntity<?> addOne(@RequestBody Department department){
         return new ResponseEntity<>(departmentService.addOne(department), HttpStatus.OK);
     }
-
 }

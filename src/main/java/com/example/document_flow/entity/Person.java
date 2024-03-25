@@ -6,6 +6,7 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.util.Date;
+import java.util.List;
 
 
 @Entity
@@ -22,12 +23,18 @@ public class Person {
     private String secondname;
     private String position;
     private Date birthdate;
+
     @ManyToOne (cascade = CascadeType.ALL)
     private Department department;
+
     @OneToOne (cascade = CascadeType.ALL)
     private Contract contract;
+
     @OneToOne (cascade = CascadeType.ALL)
     private Address address;
+
+    @OneToMany (cascade = CascadeType.ALL)
+    private List<Task> tasks;
 
     public Person(Long id, String firstname, String patronymic, String secondname, String position, Date birthdate, Department department) {
         this.id = id;
