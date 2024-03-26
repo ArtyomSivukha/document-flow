@@ -6,7 +6,7 @@ import lombok.Getter;
 public enum DocumentType {
     DECREE ("Приказ"),
     STATEMENT ("Заявление"),
-    UNKNOWN ("Неизвестно"),
+    NONAME ("Без типа"),
     PETITION ("Ходатайство");
 
     private final String name;

@@ -21,13 +21,18 @@ public class PersonController {
         return new ResponseEntity<>(CurrentUser.getInstance().getUser().getPerson(), HttpStatus.OK);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<?> getOne(@PathVariable Long id) {
+        return new ResponseEntity<>(personService.getOne(id), HttpStatus.OK);
+    }
+
     @PutMapping("/edit")
     public ResponseEntity<?> edit(@RequestBody Person person) {
         return new ResponseEntity<>(personService.update(person), HttpStatus.OK);
     }
 
-    @PutMapping("/editDepartment/{id}")
-    public ResponseEntity<?> changeDepartment(@PathVariable Long id) {
+    @PutMapping("/changeDepartment/{id}")
+    public ResponseEntity<?> changeDepartmentForCurrentUser(@PathVariable Long id) {
         return new ResponseEntity<>(personService.changeDepartment(id), HttpStatus.OK);
     }
 

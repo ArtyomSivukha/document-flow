@@ -1,5 +1,6 @@
 package com.example.document_flow.entity;
 
+import com.example.document_flow.entity.enums.DocumentStatus;
 import com.example.document_flow.entity.enums.DocumentType;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
@@ -21,11 +22,11 @@ public class Document {
     private String filePath;
     private String type;
     private DocumentType documentType;
+    private DocumentStatus documentStatus;
 
 //    @Lob
 //    @Basic(fetch = FetchType.EAGER)
 //    private byte[] content;
-
 
     @JsonIgnore
     @ManyToOne (cascade = CascadeType.MERGE, fetch = FetchType.LAZY)

@@ -34,4 +34,8 @@ public class PersonService {
         CurrentUser.getInstance().getUser().getPerson().setDepartment(departmentRepository.findById(id).get());
         return personRepository.save(CurrentUser.getInstance().getUser().getPerson());
     }
+
+    public Person getOne(Long id) {
+        return personRepository.findById(id).get();
+    }
 }
