@@ -1,6 +1,7 @@
 package com.example.document_flow.service;
 
 import com.example.document_flow.entity.User;
+import com.example.document_flow.entity.enums.Permission;
 import com.example.document_flow.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -38,6 +39,12 @@ public class UserService {
         User tempUser = userRepository.findById(id).get();
         tempUser.setLogin(user.getLogin());
         tempUser.setPassword(user.getPassword());
+        return userRepository.save(tempUser);
+    }
+
+    public User editPermission(Permission permission, Long id) {
+        User tempUser = userRepository.findById(id).get();
+        tempUser.setPermission(permission);
         return userRepository.save(tempUser);
     }
 

@@ -2,16 +2,13 @@ package com.example.document_flow.controller;
 
 
 import com.example.document_flow.entity.User;
+import com.example.document_flow.entity.enums.Permission;
 import com.example.document_flow.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
-import java.io.File;
-import java.util.UUID;
 @CrossOrigin
 @RestController
 @RequestMapping("/api/users")
@@ -27,6 +24,11 @@ public class UserController {
     @GetMapping("/{id}")
     public ResponseEntity<?> getOne(@PathVariable Long id) {
         return new ResponseEntity<>(userService.getOne(id), HttpStatus.NOT_ACCEPTABLE);
+    }
+
+    @PostMapping("/permission/{id}")
+    public ResponseEntity<?> editPermission(@RequestParam Permission permission, @PathVariable Long id) {
+        return new ResponseEntity<>(userService.editPermission(permission, id), HttpStatus.OK);
     }
 
     @PostMapping("/addOne")

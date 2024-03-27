@@ -7,6 +7,7 @@ public enum Permission {
     EMPLOYEE ("Сотрудник"),
 
     ADMIN ("Администратор системы");
+
     private String name;
 
     Permission(String name) {
