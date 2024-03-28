@@ -57,6 +57,10 @@ public class DocumentService {
         }
     }
 
+    public Document getDocumentById(Long id) {
+        return documentRepository.findById(id).orElseThrow(() -> new RuntimeException("Файл не найден с id " + id));
+    }
+
     public List<Document> getAll() {
         return documentRepository.findAll();
     }
