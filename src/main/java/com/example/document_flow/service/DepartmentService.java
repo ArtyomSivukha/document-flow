@@ -8,13 +8,18 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class DepartmentService {
+public class DepartmentService implements Getable<Department>{
     @Autowired
     private DepartmentRepository departmentRepository;
 
     public List<Department> getAll() {
         System.out.println(departmentRepository.findAll());
         return departmentRepository.findAll();
+    }
+
+    @Override
+    public Department getOne(Long id) {
+        return departmentRepository.findById(id).get();
     }
 
     public Department addOne(Department department) {

@@ -7,8 +7,10 @@ import com.example.document_flow.util.CurrentUser;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
-public class PersonService {
+public class PersonService implements Getable<Person>{
 
     @Autowired
     private PersonRepository personRepository;
@@ -33,6 +35,11 @@ public class PersonService {
     public Person changeDepartment(Long id) {
         CurrentUser.getInstance().getUser().getPerson().setDepartment(departmentRepository.findById(id).get());
         return personRepository.save(CurrentUser.getInstance().getUser().getPerson());
+    }
+
+    @Override
+    public List<Person> getAll() {
+        return personRepository.findAll();
     }
 
     public Person getOne(Long id) {

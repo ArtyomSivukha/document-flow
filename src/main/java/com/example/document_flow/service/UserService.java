@@ -9,7 +9,7 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class UserService {
+public class UserService implements Getable<User> {
     @Autowired
     private UserRepository userRepository;
 
@@ -22,7 +22,7 @@ public class UserService {
         return userRepository.findById(id).get();
     }
 
-    public User addOne(User user){
+    public User addOne(User user) {
         return userRepository.save(user);
     }
 

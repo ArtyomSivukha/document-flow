@@ -21,7 +21,7 @@ import java.util.Optional;
 
 
 @Service
-public class DocumentService {
+public class DocumentService implements Getable<Document> {
 
     @Value("${upload.path}")
     private String uploadPath;
@@ -61,8 +61,14 @@ public class DocumentService {
         return documentRepository.findById(id).orElseThrow(() -> new RuntimeException("Файл не найден с id " + id));
     }
 
+    @Override
     public List<Document> getAll() {
         return documentRepository.findAll();
+    }
+
+    @Override
+    public Document getOne(Long id) {
+        return documentRepository.findById(id).get();
     }
 
     public String newUpload(MultipartFile file) {
