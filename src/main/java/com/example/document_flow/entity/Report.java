@@ -23,6 +23,9 @@ public class Report {
     private boolean isApproved;
     private String approvedBy;
 
+    @ManyToOne(cascade = CascadeType.ALL)
+    private User user;
+
 
     public Report(Long id, String title, String description, Date createdAt, String createdBy, boolean isApproved, String approvedBy) {
         this.id = id;

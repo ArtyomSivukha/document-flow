@@ -24,9 +24,6 @@ public class Document {
     private DocumentType documentType;
     private DocumentStatus documentStatus;
 
-//    @Lob
-//    @Basic(fetch = FetchType.EAGER)
-//    private byte[] content;
 
     @JsonIgnore
     @ManyToOne (cascade = CascadeType.MERGE, fetch = FetchType.LAZY)
